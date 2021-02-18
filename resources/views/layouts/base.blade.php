@@ -16,10 +16,11 @@
     @endif
     @yield('content')
     <script>
-        exports.replaceNewline = function(input) {
-            var newline = String.fromCharCode(13, 10);
-            return input.replaceAll('\\n', newline);
-        }
+        document.getElementById("controle").addEventListener("click", function(event){
+            if(confirm("vous voulez vraiment supprimer ce cantact ?")!=true){
+                event.preventDefault()
+            }
+        });
     </script>
 </body>
 </html>

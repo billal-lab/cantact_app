@@ -11,7 +11,7 @@
                 <form action="{{ route('cantact_destroy', $cantact) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" id="controle" >Delete</button>
                 </form>
             </div>
         </div>
