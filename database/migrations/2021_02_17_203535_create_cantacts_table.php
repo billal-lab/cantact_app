@@ -15,8 +15,8 @@ class CreateCantactsTable extends Migration
     {
         Schema::create('cantacts', function (Blueprint $table) {
             $table->id();
-            $table->date('created_at');
-            $table->date('updated_at');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
             $table->string('firstName');
             $table->string('lastName');
             $table->string('adresse');

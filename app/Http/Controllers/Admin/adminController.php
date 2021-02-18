@@ -10,7 +10,7 @@ class adminController extends Controller
 {
     public function index(){
         
-        $cantacts = Cantact::all();
+        $cantacts = Cantact::orderBy('id', 'DESC')->get();
         // dd($cantacts[0]->created_at->diffForHumans());
         return view('Admin/index', compact('cantacts'));
     }

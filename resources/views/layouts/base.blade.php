@@ -9,6 +9,17 @@
     @include('partials._nav')
 </head>
 <body>
+    @if (session()->has('success'))
+    <div class="alert alert-success text-center">
+        {{session()->get('success')}}
+    </div>
+    @endif
     @yield('content')
+    <script>
+        exports.replaceNewline = function(input) {
+            var newline = String.fromCharCode(13, 10);
+            return input.replaceAll('\\n', newline);
+        }
+    </script>
 </body>
 </html>

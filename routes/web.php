@@ -15,14 +15,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/logout',[loginController::class, 'logout'])->name("login_logout");
-Route::get('/login',[loginController::class, 'index'])->name("login_index");
-Route::post('/login',[loginController::class, 'login'])->name("login_login");
 
-Route::get('/admin',[adminController::class,'index'])->name("admin_index");
+//partie admins
 
-Route::get('/',[cantactController::class,'index'])->name("cantact_index");
-Route::post('/',[cantactController::class,'store'])->name("cantact_store");
-Route::delete('/{cantact}', [cantactController::class, 'destroy'])->name('cantact.destroy');
+Route::get('/logout',[loginController::class, 'logout'])->name("login_logout")->middleware('auth'); // pour la deconnexion
+Route::get('/login',[loginController::class, 'index'])->name("login_index");  // pour afficher le formulaire de connection
+Route::post('/login',[loginController::class, 'login'])->name("login_login"); // pour s'authentifier
 
+Route::get('/admin',[adminController::class,'index'])->name("admin_index")->middleware('auth'); // afficher le dashboard de l'admin
+Route::delete('/{cantact}', [cantactController::class, 'destroy'])->name('cantact_destroy')->middleware('auth'); // supprimer un cantact
+Route::get('/{cantact}', [cantactController::class, 'editDisplay'])->name('cantact_display_edit')->middleware('auth'); // afficher le fomulaire pour editer un cantact
+Route::put('/{cantact}', [cantactController::class, 'edit'])->name('cantact_edit')->middleware('auth'); // enregistrer les modification apportés au cantact dans la bd 
+
+
+//partie visiteur
+
+Route::get('/',[cantactController::class,'index'])->name("cantact_index"); // afficher le formulaire de cantact pour l'utilisateur
+Route::post('/',[cantactController::class,'store'])->name("cantact_store"); // enregistrer le formulaire de cantact pour l'utilisateur dans la bd
 

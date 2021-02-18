@@ -13,6 +13,10 @@
             @endforeach
         </div>
         </div>
+    @else
+        <div class="text-center mx-5  mt-2">
+            <h1>Vous n'avez aucun message !</h1>
+        </div>
     @endif
     <div>
 @endsection

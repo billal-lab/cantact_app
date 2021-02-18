@@ -5,10 +5,10 @@
         </div>
         <div class="mt-4 row mx-2">
             <div>
-                <input type="button" value="Editer" class="btn btn-primary">
+                <a href="{{ route('cantact_display_edit', $cantact) }}" class="btn btn-info">Edit</a>
             </div>
             <div>
-                <form action="{{ route('cantact.destroy', $cantact) }}" method="post">
+                <form action="{{ route('cantact_destroy', $cantact) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -17,6 +17,6 @@
         </div>
     </div>
     <div class="mt-2 mx-5 border rounded">
-        <p>{{ $cantact->description }}</p>
+        <p> {!! nl2br(e($cantact->description)) !!}</p>
     </div>
 </div>
