@@ -1,6 +1,6 @@
 ## Cantact app
 - Login for admins
-- security middelware
+- security middleware
 - visitors can send messages from the cantact form to the admins
 - admins are able to display messages that they received & editing & deleting them
 
